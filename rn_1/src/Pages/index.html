@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body,
+    h1 {
+      padding: 0;
+      margin: 0;
+    }
+
+    div {
+      height: 100vh;
+      background-color: yellow;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <h1>原生网页</h1>
+  </div>
+</body>
+<script>
+  function test() {
+    alert('hello RN')
+  }
+
+  //网页接收webview传递的数据
+  // window.onload = e => {
+  //   alert(e.data)
+  // }
+
+  //h5向webview传递信息
+  window.ReactNativeWebView.postMessage('来自网页的信息')
+</script>
+
+</html>

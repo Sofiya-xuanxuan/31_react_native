@@ -5,7 +5,7 @@
 import {
   AppRegistry
 } from 'react-native';
-import App from './src/Navigator/AppNavigator';
+import App from './src/Navigator/AppTopNavigator';
 import {
   name as appName
 } from './app.json';
