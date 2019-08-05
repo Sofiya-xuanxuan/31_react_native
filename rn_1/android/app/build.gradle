@@ -108,6 +108,17 @@ android {
         versionCode 1
         versionName "1.0"
     }
+    //添加——秘钥签名
+    signingConfigs {
+        release {
+          if (project.hasProperty('MYAPP_RELEASE_STORE_FILE')) {
+            storeFile file(MYAPP_RELEASE_STORE_FILE)
+            storePassword MYAPP_RELEASE_STORE_PASSWORD
+            keyAlias MYAPP_RELEASE_KEY_ALIAS
+            keyPassword MYAPP_RELEASE_KEY_PASSWORD
+          } 
+        }
+    }
     splits {
         abi {
             reset()
@@ -118,6 +129,7 @@ android {
     }
     buildTypes {
         release {
+            signingConfig signingConfigs.release//添加——秘钥签名
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
@@ -138,6 +150,7 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-update')
     implementation project(':@react-native-community_async-storage')
     implementation project(':react-native-vector-icons')
     implementation project(':react-native-webview')

@@ -1,8 +1,10 @@
 package com.rn_1;
 
 import android.app.Application;
-
+//RN_update
+import cn.reactnative.modules.update.UpdateContext;
 import com.facebook.react.ReactApplication;
+import cn.reactnative.modules.update.UpdatePackage;
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.reactnativecommunity.webview.RNCWebViewPackage;
@@ -27,6 +29,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new UpdatePackage(),
             new AsyncStoragePackage(),
             new VectorIconsPackage(),
             new RNCWebViewPackage(),
@@ -38,6 +41,13 @@ public class MainApplication extends Application implements ReactApplication {
     protected String getJSMainModuleName() {
       return "index";
     }
+    //RN_update
+    
+    @Override
+    protected String getJSBundleFile() {
+            return UpdateContext.getBundleUrl(MainApplication.this);
+    }
+    
   };
 
   @Override
