@@ -114,7 +114,7 @@ export default class App extends Component {
       <View style={styles.container}>
         <Text style={styles.welcome}>欢迎使用热更新服务</Text>
         <Text style={styles.instructions}>
-          这是版本是2.0 {'\n'}
+          这是版本是3.0 {'\n'}
           当前包版本号: {packageVersion}
           {'\n'}
           当前版本Hash: {currentVersion || '(空)'}
